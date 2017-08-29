@@ -11,38 +11,8 @@ import {
   View,
   Button,
 } from "react-native"
-
-function formatTime(time) {
-  time = Math.round(time)
-  let outputTime = time / 1000
-  if (time < 10000) {
-    outputTime = "0" + outputTime
-  }
-  while (outputTime.length < 6) {
-    outputTime += "0"
-  }
-  return outputTime
-}
-
-const Lamp = ({ on }) =>
-  <View style={styles.light}>
-    <View style={[styles.lamp, styles.off]} />
-    <View style={[styles.lamp, styles.off]} />
-    <View style={[styles.lamp, on ? styles.on : styles.off]} />
-    <View style={[styles.lamp, on ? styles.on : styles.off]} />
-  </View>
-
-const Lights = ({ redLights }) => {
-  const lamps = []
-  for (let i = 0; i < 5; i++) {
-    lamps.push(<Lamp key={i} on={i < redLights ? false : true} />)
-  }
-  return (
-    <View style={styles.lightsContainer}>
-      {lamps}
-    </View>
-  )
-}
+import Lights from "./components/Lights.js"
+import { formatTime } from "./utils"
 
 export default class App extends React.Component {
   constructor(props) {
@@ -147,31 +117,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 10
-  },
-  lightsContainer: {
-    flex: 0,
-    flexDirection: "row",
-    marginBottom: 50
-  },
-  light: {
-    flex: 1,
-    margin: 4,
-    backgroundColor: "black",
-    borderRadius: 10
-  },
-  lamp: {
-    margin: 5,
-    backgroundColor: "red",
-    padding: 5,
-    width: 50,
-    height: 50,
-    borderRadius: 50
-  },
-  on: {
-    backgroundColor: "red"
-  },
-  off: {
-    backgroundColor: "#333"
   },
   time: {
     marginTop: 50,
