@@ -88,11 +88,11 @@ export default class App extends React.Component {
           })
         } else {
           clearInterval(this.counter)
-          this.counterIsRunning = false
-          this.setState({
-            countDown: 5
-          })
-          this.startTimer()
+          this.counter = setTimeout(() => {
+            this.counterIsRunning = false
+            this.setState({ countDown: 5 })
+            this.startTimer()
+          }, Math.random() * 1000)
         }
       }, 1000)
     })
