@@ -103,7 +103,7 @@ export default class App extends React.Component {
           title="Tap to race and tap again when the lights go out"
         />
         <Text style={styles.time}>
-          {this.state.time === 'jump start' ? 'JUMP START' : formatTime(this.state.time)}
+          {this.state.time === 'jump start' ? 'JUMP START!' : formatTime(this.state.time)}
         </Text>
       </View>
     )
