@@ -39,13 +39,13 @@ export default class App extends React.Component {
     try {
       const value = await AsyncStorage.getItem("@AppStateStore:key")
       if (value !== null) {
-        console.log('Retrieved data from localstorage', value)
+        console.log('Retrieved data from localstorage:', value)
         const previousAppState = JSON.parse(value)
         this.setState({personalBest: previousAppState.personalBest})
       }
     } catch (error) {
       // Error retrieving data
-      console.log('Error retrieving from localstorage', error)
+      console.log('Error retrieving from localstorage:', error)
     }
   }
 
@@ -125,7 +125,7 @@ export default class App extends React.Component {
         await AsyncStorage.setItem("@AppStateStore:key", JSON.stringify(this.state))
       } catch (error) {
         // Error saving data
-        console.log('Error saving date to localstorage', error)
+        console.log('Error saving date to localstorage:', error)
       }
   }
 
