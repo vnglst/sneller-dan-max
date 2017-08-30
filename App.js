@@ -5,19 +5,16 @@
 */
 
 import React from "react"
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-} from "react-native"
+import { StyleSheet, Text, View, Button } from "react-native"
 import Lights from "./components/Lights.js"
 import Time from "./components/Time"
+import { formatTime, isNumber } from "./utils"
 
 export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      personalBest: null,
       endTime: 0,
       countDown: 5
     }
@@ -35,7 +32,6 @@ export default class App extends React.Component {
   }
 
   handlePress() {
-
     if (this.timerIsRunning) {
       this.startOver()
       return
@@ -70,7 +66,7 @@ export default class App extends React.Component {
   }
 
   handleJumpstart() {
-    this.setState({ countDown: 5, endTime: 'jump start'}, () => {
+    this.setState({ countDown: 5, endTime: null }, () => {
       clearInterval(this.counter)
       this.counterIsRunning = false
       this.time = 0
@@ -88,22 +84,36 @@ export default class App extends React.Component {
   }
 
   startOver() {
-      this.timerIsRunning = false
-      this.counterIsRunning = false
-      this.startTime = null
-      clearInterval(this.timer)
-      this.setState({ countDown: 5, endTime: this.time })
+    this.timerIsRunning = false
+    this.counterIsRunning = false
+    this.startTime = null
+    clearInterval(this.timer)
+
+    let personalBest = this.state.personalBest || this.time
+    if (isNumber(this.time)) {
+      personalBest = this.time < personalBest ? this.time : personalBest 
+    }
+
+    this.setState({
+        countDown: 5,
+        endTime: this.time,
+        personalBest
+      })
   }
 
   render() {
+    const { endTime, personalBest } = this.state
     return (
       <View style={styles.container}>
-        <Lights redLights={this.state.countDown} />
+        <Lights numberOfLightsOn={this.state.countDown} />
         <Button
           onPress={this.handlePress}
           title="Tap to race, tap again when the lights go out"
         />
-        <Time time={this.state.endTime} />
+        <Time timeStr={endTime !== null ? formatTime(endTime) : 'JUMP START!' } />
+        <Text style={styles.personalRecord}>
+          Personal best: {personalBest !== null ? formatTime(personalBest) : '-'}
+        </Text>
       </View>
     )
   }
@@ -116,5 +126,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 10
+  },
+  personalRecord: {
+    marginTop: 50
   }
 })

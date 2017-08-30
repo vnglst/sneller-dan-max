@@ -10,13 +10,13 @@ const Lamp = ({ on }) => (
   </View>
 )
 
-export default Lights = ({ redLights }) => {
+export default (Lights = ({ numberOfLightsOn }) => {
   const lamps = []
   for (let i = 0; i < 5; i++) {
-    lamps.push(<Lamp key={i} on={i < redLights ? false : true} />)
+    lamps.push(<Lamp key={i} on={i < numberOfLightsOn ? false : true} />)
   }
   return <View style={styles.lightsContainer}>{lamps}</View>
-}
+})
 
 const styles = StyleSheet.create({
   lightsContainer: {
