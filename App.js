@@ -5,7 +5,7 @@
 */
 
 import React from "react"
-import { StyleSheet, Text, View, Button } from "react-native"
+import { StyleSheet, Text, View, Button, AsyncStorage } from "react-native"
 import Lights from "./components/Lights.js"
 import Time from "./components/Time"
 import { formatTime, isNumber } from "./utils"
@@ -29,6 +29,28 @@ export default class App extends React.Component {
     this.handlePress = this.handlePress.bind(this)
     this.startCountDown = this.startCountDown.bind(this)
     this.startTimer = this.startTimer.bind(this)
+  }
+
+  async componentDidMount() {
+    // try {
+    //   await AsyncStorage.setItem("@MySuperStore:key", "I like to save it.")
+    // } catch (error) {
+    //   // Error saving data
+    //   console.log(error)
+    // }
+    try {
+      const value = await AsyncStorage.getItem("@AppStateStore:key")
+      if (value !== null) {
+        // We have data!!
+        console.log(value)
+        this.setState({personalBest: value})
+      } else {
+        console.log('nothing')
+      }
+    } catch (error) {
+      // Error retrieving data
+      console.log(error)
+    }
   }
 
   handlePress() {
@@ -89,16 +111,24 @@ export default class App extends React.Component {
     this.startTime = null
     clearInterval(this.timer)
 
-    let personalBest = this.state.personalBest || this.time
+    let personalBest = isNumber(this.state.personalBest) ? this.state.personalBest : this.time
     if (isNumber(this.time)) {
-      personalBest = this.time < personalBest ? this.time : personalBest 
+      personalBest = this.time < personalBest ? this.time : personalBest
     }
 
     this.setState({
-        countDown: 5,
-        endTime: this.time,
-        personalBest
-      })
+      countDown: 5,
+      endTime: this.time,
+      personalBest
+    }, async () => {
+      console.log('saving data', personalBest);
+      try {
+        await AsyncStorage.setItem("@AppStateStore:key", JSON.stringify(personalBest))
+      } catch (error) {
+        // Error saving data
+        console.log(error)
+      }
+    })
   }
 
   render() {
@@ -110,9 +140,12 @@ export default class App extends React.Component {
           onPress={this.handlePress}
           title="Tap to race, tap again when the lights go out"
         />
-        <Time timeStr={endTime !== null ? formatTime(endTime) : 'JUMP START!' } />
+        <Time
+          timeStr={endTime !== null ? formatTime(endTime) : "JUMP START!"}
+        />
         <Text style={styles.personalRecord}>
-          Personal best: {personalBest !== null ? formatTime(personalBest) : '-'}
+          Personal best:{" "}
+          {personalBest !== null ? formatTime(personalBest) : "-"}
         </Text>
       </View>
     )
