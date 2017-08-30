@@ -101,7 +101,7 @@ export default class App extends React.Component {
         <Lights redLights={this.state.countDown} />
         <Button
           onPress={this.handlePress}
-          title="Tap to race, tap again when light go out"
+          title="Tap to race, tap again when the lights go out"
         />
         <Time time={this.state.endTime} />
       </View>

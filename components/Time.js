@@ -35,7 +35,7 @@ export default class Time extends React.PureComponent {
 const styles = StyleSheet.create({
   time: {
     marginTop: 50,
-    fontFamily: "Menlo-Regular",
+    // fontFamily: "Menlo-Regular",
     fontSize: 40
   }
 })
