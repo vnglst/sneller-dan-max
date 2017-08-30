@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, Text, View, Button } from "react-native"
+import { StyleSheet, View } from "react-native"
 
 const Lamp = ({ on }) => (
   <View style={styles.light}>
@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 4,
     backgroundColor: "black",
-    borderRadius: 10
+    borderRadius: 10,
+    alignItems: 'center'
   },
   lamp: {
     margin: 5,
