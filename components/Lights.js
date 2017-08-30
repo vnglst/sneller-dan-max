@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 4,
     backgroundColor: "black",
-    borderRadius: 10
+    borderRadius: 10,
+    alignItems: 'center'
   },
   lamp: {
     margin: 5,
