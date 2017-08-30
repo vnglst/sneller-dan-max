@@ -12,7 +12,7 @@ import {
   Button,
 } from "react-native"
 import Lights from "./components/Lights.js"
-import { formatTime } from "./utils"
+import Time from "./components/Time"
 
 export default class App extends React.Component {
   constructor(props) {
@@ -103,9 +103,7 @@ export default class App extends React.Component {
           onPress={this.handlePress}
           title="Tap to race, tap again when light go out"
         />
-        <Text style={styles.time}>
-          {this.state.endTime === 'jump start' ? 'JUMP START' : formatTime(this.state.endTime)}
-        </Text>
+        <Time time={this.state.endTime} />
       </View>
     )
   }
@@ -118,10 +116,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 10
-  },
-  time: {
-    marginTop: 50,
-    // fontFamily: "Menlo-Regular",
-    fontSize: 40
   }
 })
