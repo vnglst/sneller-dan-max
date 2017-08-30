@@ -100,7 +100,7 @@ export default class App extends React.Component {
         <Lights redLights={this.state.countDown} />
         <Button
           onPress={this.handlePress}
-          title="Tap to race and tap again when the lights go out"
+          title="Tap to race, tap again when light go out"
         />
         <Text style={styles.time}>
           {this.state.time === 'jump start' ? 'JUMP START' : formatTime(this.state.time)}
