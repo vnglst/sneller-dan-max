@@ -18,10 +18,11 @@ export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      time: 0,
+      endTime: 0,
       countDown: 5
     }
 
+    this.time = 0
     this.startTime = null
     this.timer = null
     this.timerIsRunning = false
@@ -49,7 +50,7 @@ export default class App extends React.Component {
   }
 
   startCountDown() {
-    this.setState({ time: 0, countDown: 4 }, () => {
+    this.setState({ countDown: 4 }, () => {
       this.counterIsRunning = true
       this.counter = setInterval(() => {
         if (this.state.countDown > 0) {
@@ -69,10 +70,12 @@ export default class App extends React.Component {
   }
 
   handleJumpstart() {
-    this.setState({ time: 'jump start'}, () => {
+    this.setState({ countDown: 5, endTime: 'jump start'}, () => {
       clearInterval(this.counter)
       this.counterIsRunning = false
-      this.startOver()
+      this.time = 0
+      this.startTime = null
+      clearInterval(this.timer)
     })
   }
 
@@ -80,9 +83,7 @@ export default class App extends React.Component {
     this.timerIsRunning = true
     this.startTime = new Date()
     this.timer = setInterval(() => {
-      this.setState({
-        time: new Date() - this.startTime
-      })
+      this.time = new Date() - this.startTime
     })
   }
 
@@ -91,7 +92,7 @@ export default class App extends React.Component {
       this.counterIsRunning = false
       this.startTime = null
       clearInterval(this.timer)
-      this.setState({ countDown: 5 })
+      this.setState({ countDown: 5, endTime: this.time })
   }
 
   render() {
@@ -103,7 +104,7 @@ export default class App extends React.Component {
           title="Tap to race, tap again when light go out"
         />
         <Text style={styles.time}>
-          {this.state.time === 'jump start' ? 'JUMP START' : formatTime(this.state.time)}
+          {this.state.endTime === 'jump start' ? 'JUMP START' : formatTime(this.state.endTime)}
         </Text>
       </View>
     )
@@ -120,7 +121,7 @@ const styles = StyleSheet.create({
   },
   time: {
     marginTop: 50,
-    fontFamily: "Menlo-Regular",
+    // fontFamily: "Menlo-Regular",
     fontSize: 40
   }
 })
