@@ -31,25 +31,21 @@ export default class App extends React.Component {
     this.startTimer = this.startTimer.bind(this)
   }
 
-  async componentDidMount() {
-    // try {
-    //   await AsyncStorage.setItem("@MySuperStore:key", "I like to save it.")
-    // } catch (error) {
-    //   // Error saving data
-    //   console.log(error)
-    // }
+  componentDidMount() {
+    this.getStateFromLocalStorage()
+  }
+
+  async getStateFromLocalStorage() {
     try {
       const value = await AsyncStorage.getItem("@AppStateStore:key")
       if (value !== null) {
-        // We have data!!
-        console.log(value)
-        this.setState({personalBest: value})
-      } else {
-        console.log('nothing')
+        console.log('Retrieved data from localstorage', value)
+        const previousAppState = JSON.parse(value)
+        this.setState({personalBest: previousAppState.personalBest})
       }
     } catch (error) {
       // Error retrieving data
-      console.log(error)
+      console.log('Error retrieving from localstorage', error)
     }
   }
 
@@ -120,15 +116,17 @@ export default class App extends React.Component {
       countDown: 5,
       endTime: this.time,
       personalBest
-    }, async () => {
-      console.log('saving data', personalBest);
+    }, this.saveStateToLocalStorage)
+  }
+
+  async saveStateToLocalStorage() {
+      console.log('saving data', this.state);
       try {
-        await AsyncStorage.setItem("@AppStateStore:key", JSON.stringify(personalBest))
+        await AsyncStorage.setItem("@AppStateStore:key", JSON.stringify(this.state))
       } catch (error) {
         // Error saving data
-        console.log(error)
+        console.log('Error saving date to localstorage', error)
       }
-    })
   }
 
   render() {
