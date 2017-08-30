@@ -1,6 +1,6 @@
 import React from "react"
 import { StyleSheet, Text, View, Animated, Easing } from "react-native"
-import { formatTime } from "../utils"
+
 
 export default class Time extends React.PureComponent {
   componentWillMount() {
@@ -20,12 +20,12 @@ export default class Time extends React.PureComponent {
   }
 
   render() {
-    const { time } = this.props
+    const { timeStr } = this.props
     const animatedStyle = { transform: [{ scale: this.animatedValue }] }
     return (
       <Animated.View style={animatedStyle}>
         <Text style={styles.time}>
-          {time === "jump start" ? "JUMP START" : formatTime(time)}
+          { timeStr }
         </Text>
       </Animated.View>
     )
