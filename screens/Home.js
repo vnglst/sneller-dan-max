@@ -178,17 +178,16 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    padding: 10
+    padding: 5
   },
   personalRecord: {
     marginTop: 50
   },
   footer: {
-    padding: 0,
-    margin: 0,
     width: '100%',
     flex: 1,
     flexDirection: "row",
-    justifyContent: "flex-end"
+    justifyContent: "flex-end",
+    alignItems: "flex-end"
   }
 })
