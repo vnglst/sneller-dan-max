@@ -5,10 +5,14 @@
 */
 
 import React from "react"
-import { StyleSheet, Text, View, Button, AsyncStorage } from "react-native"
+import { StyleSheet, Text, View, Button } from "react-native"
 import Lights from "./components/Lights.js"
 import Time from "./components/Time"
 import { formatTime, isNumber } from "./utils"
+import {
+  getStateFromLocalstorage,
+  setStateFromLocalstorage
+} from "./utils/localstorage"
 
 export default class App extends React.Component {
   constructor(props) {
@@ -37,11 +41,9 @@ export default class App extends React.Component {
 
   async getStateFromLocalStorage() {
     try {
-      const value = await AsyncStorage.getItem("@AppStateStore:key")
-      if (value !== null) {
-        console.log('Retrieved data from localstorage:', value)
-        const previousAppState = JSON.parse(value)
-        this.setState({personalBest: previousAppState.personalBest})
+      const state = await getStateFromLocalstorage()
+      if (state !== null) {
+        this.setState({personalBest: state.personalBest})
       }
     } catch (error) {
       // Error retrieving data
@@ -120,9 +122,8 @@ export default class App extends React.Component {
   }
 
   async saveStateToLocalStorage() {
-      console.log('saving data', this.state);
       try {
-        await AsyncStorage.setItem("@AppStateStore:key", JSON.stringify(this.state))
+        await saveStateToLocalStorage(this.state)
       } catch (error) {
         // Error saving data
         console.log('Error saving date to localstorage:', error)
