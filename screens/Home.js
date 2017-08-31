@@ -142,21 +142,33 @@ export default class Home extends React.Component {
   render() {
     const { navigate } = this.props.navigation
     const { endTime, personalBest } = this.state
-    return <View style={styles.container}>
+    return (
+      <View style={styles.container}>
         <Lights numberOfLightsOn={this.state.countDown} />
-        <Button onPress={this.handlePress} title="Tap to race, tap again when the lights go out" />
-        <Time timeStr={endTime !== null ? formatTime(endTime) : "JUMP START!"} />
+        <Button
+          onPress={this.handlePress}
+          title="Tap to race, tap again when the lights go out"
+        />
+        <Time
+          timeStr={endTime !== null ? formatTime(endTime) : "JUMP START!"}
+        />
         <Text style={styles.personalRecord}>
           Personal best:{" "}
           {personalBest !== null ? formatTime(personalBest) : "-"}
         </Text>
-        <Button title="About" onPress={() => {
-            navigate("About")
-          }} />
-        <Button title="Highscores" onPress={() => {
-            navigate("Highscores")
-          }} />
+        <View style={styles.footer}>
+          <View>
+            <Button
+              color="black"
+              title="👨‍💻"
+              onPress={() => {
+                navigate("About")
+              }}
+            />
+          </View>
+        </View>
       </View>
+    )
   }
 }
 
@@ -170,5 +182,13 @@ const styles = StyleSheet.create({
   },
   personalRecord: {
     marginTop: 50
+  },
+  footer: {
+    padding: 0,
+    margin: 0,
+    width: '100%',
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "flex-end"
   }
 })
