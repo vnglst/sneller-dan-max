@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     top: 105,
     margin: 5,
     width: 300,
-    height: 10,
+    height: 7,
     backgroundColor: "black"
   }
 })

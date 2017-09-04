@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
   timeText: {
     marginTop: 0,
     fontFamily: "Menlo-Regular",
-    fontSize: 40
+    fontSize: 40,
+    backgroundColor:'transparent'
   }
 })
