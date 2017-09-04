@@ -20,13 +20,17 @@ import {
   setStateFromLocalstorage
 } from "../utils/localstorage"
 
+import api from "../utils/api"
+
 export default class Home extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       personalBest: null,
       endTime: 0,
-      countDown: 5
+      countDown: 5,
+      highscores: [],
+      highscoresLoading: true
     }
 
     this.time = 0
@@ -39,6 +43,8 @@ export default class Home extends React.Component {
     this.handlePress = this.handlePress.bind(this)
     this.startCountDown = this.startCountDown.bind(this)
     this.startTimer = this.startTimer.bind(this)
+    this.getStateFromLocalStorage = this.getStateFromLocalStorage.bind(this)
+    this.getHighscoresFromApi = this.getHighscoresFromApi.bind(this)
   }
 
   static navigationOptions = {
@@ -47,6 +53,7 @@ export default class Home extends React.Component {
 
   componentDidMount() {
     this.getStateFromLocalStorage()
+    this.getHighscoresFromApi()
   }
 
   async getStateFromLocalStorage() {
@@ -58,6 +65,17 @@ export default class Home extends React.Component {
     } catch (error) {
       // Error retrieving data
       console.log("Error retrieving from localstorage:", error)
+    }
+  }
+
+  async getHighscoresFromApi() {
+     try {
+      const highscores = await api.getHighscores()
+      if (highscores !== null) {
+        this.setState({ highscores, highscoresLoading: false })
+      }
+    } catch(e) {
+      console.log('Error loading highscores', e)
     }
   }
 
@@ -148,38 +166,30 @@ export default class Home extends React.Component {
   render() {
     const { navigate } = this.props.navigation
     const { endTime, personalBest } = this.state
-    return (
-      <View style={styles.container}>
+    return <View style={styles.container}>
         <Lights numberOfLightsOn={this.state.countDown} />
-        <TouchableHighlight
-          onPress={this.handlePress}
-          underlayColor="white"
-          activeOpacity={0.7}
-        >
+        <TouchableHighlight onPress={this.handlePress} underlayColor="white" activeOpacity={0.7}>
           <View style={styles.startButton}>
-            <Text style={styles.startButtonText}>Druk hier om te starten</Text>
+            <Text style={styles.startButtonText}>Start de race!</Text>
           </View>
         </TouchableHighlight>
-        <Time
-          timeStr={endTime !== null ? formatTime(endTime) : "VALSE START!"}
-        />
+        <Time timeStr={endTime !== null ? formatTime(endTime) : "VALSE START!"} />
         <Text style={styles.personalRecord}>
           Persoonlijk record:{" "}
           {personalBest !== null ? formatTime(personalBest) : "-"}
         </Text>
         <View style={styles.footer}>
-          <View>
-            <Button
-              color="black"
-              title="👨‍💻"
-              onPress={() => {
+            <Button color="black" title="🏆" onPress={() => {
+                navigate("Highscores", {
+                  highscores: this.state.highscores,
+                  isLoading: this.state.highscoresLoading
+                })
+              }} />
+            <Button color="black" title="👨‍💻" onPress={() => {
                 navigate("About")
-              }}
-            />
-          </View>
+              }} />
         </View>
       </View>
-    )
   }
 }
 
@@ -208,6 +218,6 @@ const styles = StyleSheet.create({
   footer: {
     width: "100%",
     flexDirection: "row",
-    justifyContent: "flex-end"
+    justifyContent: "space-between"
   }
 })

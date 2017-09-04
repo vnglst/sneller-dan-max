@@ -1,31 +1,31 @@
 import React from "react"
-import { AppRegistry, FlatList, StyleSheet, Text, View } from "react-native"
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+  ActivityIndicator
+} from "react-native"
 
 export default class Highscores extends React.Component {
   static navigationOptions = {
     title: "Highscores"
   }
 
-  componentWillMount() {
-    this.data = [
-            { key: "Devin", time: 302 },
-            { key: "Jackson", time: 201 },
-            { key: "James", time: 199 },
-            { key: "Joel", time: 233 },
-            { key: "John", time: 288 },
-            { key: "Jillian", time: 222 },
-            { key: "Jimmy", time: 302 },
-            { key: "Julie", time: 400 }
-          ].sort((a, b) => a.time < b.time ? -1 : 1)
-  }
+  _keyExtractor = (item, index) => item.name + index
 
   render() {
     const { navigate } = this.props.navigation
+    const { highscores, isLoading } = this.props.navigation.state.params
     return (
       <View style={styles.container}>
+        <ActivityIndicator animating={isLoading} size="large" />
         <FlatList
-          data={this.data}
-          renderItem={({ item }) => <Text style={styles.item}>{`${item.key}: ${item.time}`}</Text>}
+          data={highscores}
+          keyExtractor={this._keyExtractor}
+          renderItem={({ item }, i) => (
+            <Text style={styles.item}>{`${item.name}: ${item.record}`}</Text>
+          )}
         />
       </View>
     )
