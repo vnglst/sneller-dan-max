@@ -5,7 +5,13 @@
 */
 
 import React from "react"
-import { StyleSheet, Text, View, Button } from "react-native"
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  TouchableHighlight
+} from "react-native"
 import Lights from "../components/Lights.js"
 import Time from "../components/Time"
 import { formatTime, isNumber } from "../utils"
@@ -145,11 +151,15 @@ export default class Home extends React.Component {
     return (
       <View style={styles.container}>
         <Lights numberOfLightsOn={this.state.countDown} />
-        <Button
-          style={{ flex: 1 }}
+        <TouchableHighlight
           onPress={this.handlePress}
-          title="Druk hier om te starten"
-        />
+          underlayColor="white"
+          activeOpacity={0.7}
+        >
+          <View style={styles.startButton}>
+            <Text style={styles.startButtonText}>Druk hier om te starten</Text>
+          </View>
+        </TouchableHighlight>
         <Time
           timeStr={endTime !== null ? formatTime(endTime) : "VALSE START!"}
         />
@@ -180,12 +190,24 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     padding: 5,
+    backgroundColor: "white"
   },
-  personalRecord: {
+  startButton: {
+    backgroundColor: "red",
+    padding: 8,
+    borderWidth: 10,
+    borderRadius: 20,
+    borderColor: "red"
   },
+  startButtonText: {
+    fontSize: 18,
+    color: "#FFFFFF",
+    fontWeight: "bold"
+  },
+  personalRecord: {},
   footer: {
-    width: '100%',
+    width: "100%",
     flexDirection: "row",
-    justifyContent: "flex-end",
+    justifyContent: "flex-end"
   }
 })
