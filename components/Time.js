@@ -23,8 +23,8 @@ export default class Time extends React.PureComponent {
     const { timeStr } = this.props
     const animatedStyle = { transform: [{ scale: this.animatedValue }] }
     return (
-      <Animated.View style={animatedStyle}>
-        <Text style={styles.time}>
+      <Animated.View style={[animatedStyle]}>
+        <Text style={styles.timeText}>
           { timeStr }
         </Text>
       </Animated.View>
@@ -33,9 +33,9 @@ export default class Time extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
-  time: {
-    marginTop: 50,
-    // fontFamily: "Menlo-Regular",
+  timeText: {
+    marginTop: 0,
+    fontFamily: "Menlo-Regular",
     fontSize: 40
   }
 })

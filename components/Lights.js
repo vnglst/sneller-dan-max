@@ -10,22 +10,25 @@ const Lamp = ({ on }) => (
   </View>
 )
 
+const MetalRod = () => <View style={styles.rod} />
+
 export default (Lights = ({ numberOfLightsOn }) => {
   const lamps = []
   for (let i = 0; i < 5; i++) {
     lamps.push(<Lamp key={i} on={i < numberOfLightsOn ? false : true} />)
   }
-  return <View style={styles.lightsContainer}>{lamps}</View>
+  return <View style={styles.lightsContainer}>
+    {lamps}
+    <MetalRod />
+    </View>
 })
 
 const styles = StyleSheet.create({
   lightsContainer: {
-    flex: 0,
     flexDirection: "row",
-    marginBottom: 50
+    margin: 5
   },
   light: {
-    flex: 1,
     margin: 4,
     backgroundColor: "black",
     borderRadius: 10,
@@ -35,14 +38,22 @@ const styles = StyleSheet.create({
     margin: 5,
     backgroundColor: "red",
     padding: 5,
-    width: 50,
-    height: 50,
-    borderRadius: 50
+    width: 45,
+    height: 45,
+    borderRadius: 45
   },
   on: {
     backgroundColor: "red"
   },
   off: {
     backgroundColor: "#333"
+  },
+  rod: {
+    position: 'absolute',
+    top: 105,
+    margin: 5,
+    width: '100%',
+    height: 10,
+    backgroundColor: "black"
   }
 })

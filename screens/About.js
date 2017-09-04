@@ -7,49 +7,30 @@ export default class About extends React.Component {
   }
   render() {
     const { navigate } = this.props.navigation
-    return (
-      <View style={styles.aboutContainer}>
+    return <View style={styles.aboutContainer}>
         <View style={styles.leftView}>
-            <Text style={styles.aboutText}>ABOUT</Text>
+          <Text style={styles.aboutText}>👨‍💻</Text>
         </View>
         <View style={styles.rightView}>
           <Text style={styles.text}>
-            App created by Koen van Gilst{" "}
-            <Text
-              style={{ color: "blue" }}
-              onPress={() => Linking.openURL("https://twitter.com/vnglst")}
-            >
+            App gemaakt door Koen van Gilst <Text style={{ color: "blue" }} onPress={() => Linking.openURL("https://twitter.com/vnglst")}>
               @vnglst
             </Text>.
           </Text>
           <Text style={styles.text}>
-            Based on the original{" "}
-            <Text
-              style={{ color: "blue" }}
-              onPress={() => Linking.openURL("https://f1-start.glitch.me/")}
-            >
-              app
-            </Text>{" "}
-            created for web by Jake Archibald{" "}
-            <Text
-              style={{ color: "blue" }}
-              onPress={() =>
-                Linking.openURL("https://twitter.com/jaffathecake")}
-            >
+            Gebaseerd op de <Text style={{ color: "blue" }} onPress={() => Linking.openURL("https://f1-start.glitch.me/")}>
+              web app
+            </Text> van Jake Archibald <Text style={{ color: "blue" }} onPress={() => Linking.openURL("https://twitter.com/jaffathecake")}>
               @jaffathecake
             </Text>.
           </Text>
           <Text style={styles.text}>
-            <Text
-              style={{ color: "blue" }}
-              onPress={() => Linking.openURL("https://koenvangilst.nl/")}
-            >
+            <Text style={{ color: "blue" }} onPress={() => Linking.openURL("https://koenvangilst.nl/")}>
               koenvangilst.nl
             </Text>
           </Text>
         </View>
       </View>
-    )
   }
 }
 
