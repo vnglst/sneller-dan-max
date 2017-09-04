@@ -146,14 +146,15 @@ export default class Home extends React.Component {
       <View style={styles.container}>
         <Lights numberOfLightsOn={this.state.countDown} />
         <Button
+          style={{ flex: 1 }}
           onPress={this.handlePress}
-          title="Tap to race, tap again when the lights go out"
+          title="Druk hier om te starten"
         />
         <Time
-          timeStr={endTime !== null ? formatTime(endTime) : "JUMP START!"}
+          timeStr={endTime !== null ? formatTime(endTime) : "VALSE START!"}
         />
         <Text style={styles.personalRecord}>
-          Personal best:{" "}
+          Persoonlijk record:{" "}
           {personalBest !== null ? formatTime(personalBest) : "-"}
         </Text>
         <View style={styles.footer}>
@@ -175,19 +176,16 @@ export default class Home extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    flexDirection: "column",
+    justifyContent: "space-between",
     alignItems: "center",
-    justifyContent: "center",
-    padding: 5
+    padding: 5,
   },
   personalRecord: {
-    marginTop: 50
   },
   footer: {
     width: '100%',
-    flex: 1,
     flexDirection: "row",
     justifyContent: "flex-end",
-    alignItems: "flex-end"
   }
 })
