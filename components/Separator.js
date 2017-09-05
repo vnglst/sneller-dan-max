@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { View, StyleSheet } from "react-native"
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   separator: {
     flex: 1,
     backgroundColor: "#E4E4E4",
