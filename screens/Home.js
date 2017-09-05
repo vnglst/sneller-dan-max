@@ -144,6 +144,8 @@ export default class Home extends React.Component {
       personalBest = this.time < personalBest ? this.time : personalBest
     }
 
+    this.checkHighscore()
+
     this.setState(
       {
         countDown: 5,
@@ -154,8 +156,18 @@ export default class Home extends React.Component {
     )
   }
 
+  checkHighscore() {
+    const { highscores } = this.state
+    console.log('Checking highscore')
+    // check if this.time is better than one of highscore?
+    // show popup "Nieuwe highscore!"
+    // with text input field for highscore
+    // open highscore window, show new highscore list
+  }
+
   async saveStateToLocalStorage() {
     try {
+      console.log('Saving to local storage', this.state)
       await saveStateToLocalStorage(this.state)
     } catch (error) {
       // Error saving data

@@ -25,6 +25,9 @@ const api = {
 //   { name: "Maxi", record: "0.420" },
 //   { name: "Maxi", record: "0.455" },
 //   { name: "Maxi", record: "0.500" },
+//   { name: "Maxi", record: "0.900" },
+//   { name: "Maxi", record: "0.900" },
+//   { name: "Maxi", record: "0.900" },
 //   { name: "Maxi", record: "0.900" }
 // ]
 
