@@ -14,11 +14,14 @@ import {
 } from "react-native"
 import Lights from "../components/Lights.js"
 import Time from "../components/Time"
+import NewHighscore from "../components/NewHighscore"
 import { formatTime, isNumber } from "../utils"
 import {
   getStateFromLocalstorage,
   setStateFromLocalstorage
 } from "../utils/localstorage"
+
+import api from "../utils/api"
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -26,7 +29,10 @@ export default class Home extends React.Component {
     this.state = {
       personalBest: null,
       endTime: 0,
-      countDown: 5
+      countDown: 5,
+      highscores: [],
+      highscoresLoading: true,
+      isNewHighscore: false
     }
 
     this.time = 0
@@ -39,6 +45,9 @@ export default class Home extends React.Component {
     this.handlePress = this.handlePress.bind(this)
     this.startCountDown = this.startCountDown.bind(this)
     this.startTimer = this.startTimer.bind(this)
+    this.getStateFromLocalStorage = this.getStateFromLocalStorage.bind(this)
+    this.getHighscoresFromApi = this.getHighscoresFromApi.bind(this)
+    this.checkHighscore = this.checkHighscore.bind(this)
   }
 
   static navigationOptions = {
@@ -47,6 +56,7 @@ export default class Home extends React.Component {
 
   componentDidMount() {
     this.getStateFromLocalStorage()
+    this.getHighscoresFromApi()
   }
 
   async getStateFromLocalStorage() {
@@ -58,6 +68,17 @@ export default class Home extends React.Component {
     } catch (error) {
       // Error retrieving data
       console.log("Error retrieving from localstorage:", error)
+    }
+  }
+
+  async getHighscoresFromApi() {
+    try {
+      const highscores = await api.getHighscores()
+      if (highscores !== null) {
+        this.setState({ highscores, highscoresLoading: false })
+      }
+    } catch (e) {
+      console.log("Error loading highscores", e)
     }
   }
 
@@ -126,6 +147,8 @@ export default class Home extends React.Component {
       personalBest = this.time < personalBest ? this.time : personalBest
     }
 
+    this.checkHighscore()
+
     this.setState(
       {
         countDown: 5,
@@ -136,8 +159,18 @@ export default class Home extends React.Component {
     )
   }
 
+  checkHighscore() {
+    const { highscores } = this.state
+    console.log("Checking highscore")
+    // check if this.time is better than one of highscore?
+    // show popup "Nieuwe highscore!" --> this.setState({ isNewHighscore: true })
+    // with text input field for highscore
+    // open highscore window, show new highscore list
+  }
+
   async saveStateToLocalStorage() {
     try {
+      console.log("Saving to local storage", this.state)
       await saveStateToLocalStorage(this.state)
     } catch (error) {
       // Error saving data
@@ -157,7 +190,7 @@ export default class Home extends React.Component {
           activeOpacity={0.7}
         >
           <View style={styles.startButton}>
-            <Text style={styles.startButtonText}>Druk hier om te starten</Text>
+            <Text style={styles.startButtonText}>Start de race!</Text>
           </View>
         </TouchableHighlight>
         <Time
@@ -168,16 +201,30 @@ export default class Home extends React.Component {
           {personalBest !== null ? formatTime(personalBest) : "-"}
         </Text>
         <View style={styles.footer}>
-          <View>
-            <Button
-              color="black"
-              title="👨‍💻"
-              onPress={() => {
-                navigate("About")
-              }}
-            />
-          </View>
+          <Button
+            color="black"
+            title="🏆"
+            onPress={() => {
+              navigate("Highscores", {
+                highscores: this.state.highscores,
+                isLoading: this.state.highscoresLoading
+              })
+            }}
+          />
+          <Button
+            color="black"
+            title="👨‍💻"
+            onPress={() => {
+              navigate("About")
+            }}
+          />
         </View>
+        <NewHighscore
+          modalVisible={this.state.isNewHighscore}
+          onCloseModal={() => {
+            this.setState({ isNewHighscore: false })
+          }}
+        />
       </View>
     )
   }
@@ -208,6 +255,6 @@ const styles = StyleSheet.create({
   footer: {
     width: "100%",
     flexDirection: "row",
-    justifyContent: "flex-end"
+    justifyContent: "space-between"
   }
 })
