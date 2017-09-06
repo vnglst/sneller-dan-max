@@ -35,9 +35,13 @@ class SnellerDanMaxUITests: XCTestCase {
       // Use XCTAssert and related functions to verify your tests produce the correct results.
       
       let tapToRaceElement = XCUIApplication().otherElements["Tap to race!"]
-      tapToRaceElement.tap()
-      tapToRaceElement.tap()
       snapshot("0Launch", waitForLoadingIndicator: false)
+      tapToRaceElement.tap()
+      sleep(1)
+      snapshot("1Launch", waitForLoadingIndicator: false)
+      sleep(4)
+      tapToRaceElement.tap()
+      snapshot("2Launch", waitForLoadingIndicator: false)
      
     }
     
