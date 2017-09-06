@@ -66,6 +66,26 @@
                ReferencedContainer = "container:SnellerDanMax.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2E89ED311F6032D700D5E950"
+               BuildableName = "SnellerDanMaxSnapshotsUITests.xctest"
+               BlueprintName = "SnellerDanMaxSnapshotsUITests"
+               ReferencedContainer = "container:SnellerDanMax.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2E89ED611F60374F00D5E950"
+               BuildableName = "SnellerDanMaxUITests.xctest"
+               BlueprintName = "SnellerDanMaxUITests"
+               ReferencedContainer = "container:SnellerDanMax.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

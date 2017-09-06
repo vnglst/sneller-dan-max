@@ -34,6 +34,8 @@
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* SnellerDanMaxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SnellerDanMaxTests.m */; };
+		2E89ED651F60374F00D5E950 /* SnellerDanMaxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E89ED641F60374F00D5E950 /* SnellerDanMaxUITests.swift */; };
+		2E89ED6C1F60392600D5E950 /* SnapshotHelperXcode8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E89ED5C1F60330900D5E950 /* SnapshotHelperXcode8.swift */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
@@ -116,6 +118,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = ADD01A681E09402E00F6D226;
 			remoteInfo = "RCTBlob-tvOS";
+		};
+		2E89ED671F60374F00D5E950 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
+			remoteInfo = SnellerDanMax;
 		};
 		2EFA6C0B1F60221400F82F1A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -295,6 +304,11 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* SnellerDanMax-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SnellerDanMax-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* SnellerDanMax-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SnellerDanMax-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E89ED5B1F60330800D5E950 /* SnellerDanMax-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SnellerDanMax-Bridging-Header.h"; sourceTree = "<group>"; };
+		2E89ED5C1F60330900D5E950 /* SnapshotHelperXcode8.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelperXcode8.swift; path = ../fastlane/SnapshotHelperXcode8.swift; sourceTree = "<group>"; };
+		2E89ED621F60374F00D5E950 /* SnellerDanMaxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnellerDanMaxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E89ED641F60374F00D5E950 /* SnellerDanMaxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnellerDanMaxUITests.swift; sourceTree = "<group>"; };
+		2E89ED661F60374F00D5E950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
@@ -346,6 +360,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2D02E48D1E0B4A5D006451C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E89ED5F1F60374F00D5E950 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -465,6 +486,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2E89ED631F60374F00D5E950 /* SnellerDanMaxUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2E89ED641F60374F00D5E950 /* SnellerDanMaxUITests.swift */,
+				2E89ED5C1F60330900D5E950 /* SnapshotHelperXcode8.swift */,
+				2E89ED661F60374F00D5E950 /* Info.plist */,
+			);
+			path = SnellerDanMaxUITests;
+			sourceTree = "<group>";
+		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -517,7 +548,9 @@
 				13B07FAE1A68108700A75B9A /* SnellerDanMax */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* SnellerDanMaxTests */,
+				2E89ED631F60374F00D5E950 /* SnellerDanMaxUITests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
+				2E89ED5B1F60330800D5E950 /* SnellerDanMax-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -531,6 +564,7 @@
 				00E356EE1AD99517003FC87E /* SnellerDanMaxTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* SnellerDanMax-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* SnellerDanMax-tvOSTests.xctest */,
+				2E89ED621F60374F00D5E950 /* SnellerDanMaxUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -619,12 +653,31 @@
 			productReference = 2D02E4901E0B4A5D006451C7 /* SnellerDanMax-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		2E89ED611F60374F00D5E950 /* SnellerDanMaxUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E89ED691F60374F00D5E950 /* Build configuration list for PBXNativeTarget "SnellerDanMaxUITests" */;
+			buildPhases = (
+				2E89ED5E1F60374F00D5E950 /* Sources */,
+				2E89ED5F1F60374F00D5E950 /* Frameworks */,
+				2E89ED601F60374F00D5E950 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2E89ED681F60374F00D5E950 /* PBXTargetDependency */,
+			);
+			name = SnellerDanMaxUITests;
+			productName = SnellerDanMaxUITests;
+			productReference = 2E89ED621F60374F00D5E950 /* SnellerDanMaxUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
@@ -634,6 +687,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = YYD8SND6RN;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Manual;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -644,6 +698,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2D02E47A1E0B4A5D006451C7;
+					};
+					2E89ED611F60374F00D5E950 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 				};
 			};
@@ -714,6 +773,7 @@
 				00E356ED1AD99517003FC87E /* SnellerDanMaxTests */,
 				2D02E47A1E0B4A5D006451C7 /* SnellerDanMax-tvOS */,
 				2D02E48F1E0B4A5D006451C7 /* SnellerDanMax-tvOSTests */,
+				2E89ED611F60374F00D5E950 /* SnellerDanMaxUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -970,6 +1030,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2E89ED601F60374F00D5E950 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1038,6 +1105,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2E89ED5E1F60374F00D5E950 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E89ED6C1F60392600D5E950 /* SnapshotHelperXcode8.swift in Sources */,
+				2E89ED651F60374F00D5E950 /* SnellerDanMaxUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1050,6 +1126,11 @@
 			isa = PBXTargetDependency;
 			target = 2D02E47A1E0B4A5D006451C7 /* SnellerDanMax-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
+		};
+		2E89ED681F60374F00D5E950 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13B07F861A680F5B00A75B9A /* SnellerDanMax */;
+			targetProxy = 2E89ED671F60374F00D5E950 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1107,9 +1188,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-        ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-        ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = NO;
@@ -1125,6 +1205,9 @@
 				PRODUCT_NAME = SnellerDanMax;
 				PROVISIONING_PROFILE = "1baa9b92-868d-4c3b-8e60-d48d6d8dcb04";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development nl.koenvangilst.SnellerDanMax";
+				SWIFT_OBJC_BRIDGING_HEADER = "SnellerDanMax-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1133,9 +1216,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-        ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-        ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = YYD8SND6RN;
@@ -1150,6 +1232,8 @@
 				PRODUCT_NAME = SnellerDanMax;
 				PROVISIONING_PROFILE = "2227916d-453d-42ea-b682-8d918661aef9";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore nl.koenvangilst.SnellerDanMax";
+				SWIFT_OBJC_BRIDGING_HEADER = "SnellerDanMax-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -1245,6 +1329,59 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SnellerDanMax-tvOS.app/SnellerDanMax-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+			};
+			name = Release;
+		};
+		2E89ED6A1F60374F00D5E950 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = SnellerDanMaxUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vb.vg.de.SnellerDanMaxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = SnellerDanMax;
+			};
+			name = Debug;
+		};
+		2E89ED6B1F60374F00D5E950 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = SnellerDanMaxUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vb.vg.de.SnellerDanMaxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = SnellerDanMax;
 			};
 			name = Release;
 		};
@@ -1362,6 +1499,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		2E89ED691F60374F00D5E950 /* Build configuration list for PBXNativeTarget "SnellerDanMaxUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E89ED6A1F60374F00D5E950 /* Debug */,
+				2E89ED6B1F60374F00D5E950 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "SnellerDanMax" */ = {
 			isa = XCConfigurationList;
