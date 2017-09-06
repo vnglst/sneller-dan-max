@@ -49,10 +49,10 @@ platform :ios do
       type: "appstore",
       git_url: "git@github.com:vnglst/xcode-certificates.git"
     )
-    # snapshot
+    snapshot
     gym(scheme: "SnellerDanMax") # Build your app - more options available
     deliver(force: true)
-    # frameit
+    frameit
   end
 
   # You can define as many lanes as you want
