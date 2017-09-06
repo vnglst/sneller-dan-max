@@ -8,7 +8,7 @@ export const getStateFromLocalstorage = async () => {
   return state
 }
 
-export const setStateFromLocalstorage = state => {
+export const saveStateToLocalStorage = state => {
   console.log("Saving state", state)
-  return AsyncStorage.setItem("@AppStateStore:key", JSON.stringify(this.state))
+  return AsyncStorage.setItem("@AppStateStore:key", JSON.stringify(state))
 }

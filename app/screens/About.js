@@ -13,14 +13,14 @@ export default class About extends React.Component {
         </View>
         <View style={styles.rightView}>
           <Text style={styles.text}>
-            App gemaakt door Koen van Gilst <Text style={{ color: "blue" }} onPress={() => Linking.openURL("https://twitter.com/vnglst")}>
+            App created by Koen van Gilst <Text style={{ color: "blue" }} onPress={() => Linking.openURL("https://twitter.com/vnglst")}>
               @vnglst
             </Text>.
           </Text>
           <Text style={styles.text}>
-            Gebaseerd op de <Text style={{ color: "blue" }} onPress={() => Linking.openURL("https://f1-start.glitch.me/")}>
+            Based on the <Text style={{ color: "blue" }} onPress={() => Linking.openURL("https://f1-start.glitch.me/")}>
               web app
-            </Text> van Jake Archibald <Text style={{ color: "blue" }} onPress={() => Linking.openURL("https://twitter.com/jaffathecake")}>
+            </Text> by Jake Archibald <Text style={{ color: "blue" }} onPress={() => Linking.openURL("https://twitter.com/jaffathecake")}>
               @jaffathecake
             </Text>.
           </Text>
