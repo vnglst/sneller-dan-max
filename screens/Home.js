@@ -14,7 +14,7 @@ import {
 } from "react-native"
 import Lights from "../components/Lights.js"
 import Time from "../components/Time"
-import NewHighscore from "../components/NewHighscore"
+// import NewHighscore from "../components/NewHighscore"
 import { formatTime, isNumber } from "../utils"
 import {
   getStateFromLocalstorage,
@@ -56,7 +56,7 @@ export default class Home extends React.Component {
 
   componentDidMount() {
     this.getStateFromLocalStorage()
-    this.getHighscoresFromApi()
+    // this.getHighscoresFromApi()
   }
 
   async getStateFromLocalStorage() {
@@ -147,7 +147,7 @@ export default class Home extends React.Component {
       personalBest = this.time < personalBest ? this.time : personalBest
     }
 
-    this.checkHighscore()
+    // this.checkHighscore()
 
     this.setState(
       {
@@ -201,7 +201,7 @@ export default class Home extends React.Component {
           {personalBest !== null ? formatTime(personalBest) : "-"}
         </Text>
         <View style={styles.footer}>
-          <Button
+          {/* <Button
             color="black"
             title="🏆"
             onPress={() => {
@@ -210,7 +210,7 @@ export default class Home extends React.Component {
                 isLoading: this.state.highscoresLoading
               })
             }}
-          />
+          /> */}
           <Button
             color="black"
             title="👨‍💻"
@@ -219,12 +219,12 @@ export default class Home extends React.Component {
             }}
           />
         </View>
-        <NewHighscore
+        {/* <NewHighscore
           modalVisible={this.state.isNewHighscore}
           onCloseModal={() => {
             this.setState({ isNewHighscore: false })
           }}
-        />
+        /> */}
       </View>
     )
   }
