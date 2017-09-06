@@ -3,7 +3,6 @@ import { StackNavigator } from "react-navigation"
 import Home from "./screens/Home"
 import About from "./screens/About"
 import Highscores from "./screens/Highscores"
-import * as firebase from "firebase"
 
 export default (App = StackNavigator({
   Home: { screen: Home },

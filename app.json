@@ -1,7 +1,4 @@
 {
-  "expo": {
-    "sdkVersion": "20.0.0"
-  },
-  "name": "snellerdanmax",
-  "displayName": "Sneller dan Max"
+  "name": "SnellerDanMax",
+  "displayName": "Faster Than Max"
 }
