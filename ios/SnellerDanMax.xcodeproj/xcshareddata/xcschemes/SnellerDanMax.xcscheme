@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "Faster Than Max.app"
-               BlueprintName = "Faster Than Max"
-               ReferencedContainer = "container:Faster Than Max.xcodeproj">
+               BuildableName = "SnellerDanMax.app"
+               BlueprintName = "SnellerDanMax"
+               ReferencedContainer = "container:SnellerDanMax.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "Faster Than MaxTests.xctest"
-               BlueprintName = "Faster Than MaxTests"
-               ReferencedContainer = "container:Faster Than Max.xcodeproj">
+               BuildableName = "SnellerDanMaxTests.xctest"
+               BlueprintName = "SnellerDanMaxTests"
+               ReferencedContainer = "container:SnellerDanMax.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,10 +61,15 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "Faster Than MaxTests.xctest"
-               BlueprintName = "Faster Than MaxTests"
-               ReferencedContainer = "container:Faster Than Max.xcodeproj">
+               BuildableName = "SnellerDanMaxTests.xctest"
+               BlueprintName = "SnellerDanMaxTests"
+               ReferencedContainer = "container:SnellerDanMax.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "SnellerDanMaxTests/testRendersWelcomeScreen">
+               </Test>
+            </SkippedTests>
          </TestableReference>
          <TestableReference
             skipped = "NO">
@@ -73,7 +78,7 @@
                BlueprintIdentifier = "2E89ED311F6032D700D5E950"
                BuildableName = "SnellerDanMaxSnapshotsUITests.xctest"
                BlueprintName = "SnellerDanMaxSnapshotsUITests"
-               ReferencedContainer = "container:Faster Than Max.xcodeproj">
+               ReferencedContainer = "container:SnellerDanMax.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -81,9 +86,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2E89ED611F60374F00D5E950"
-               BuildableName = "Faster Than MaxUITests.xctest"
-               BlueprintName = "Faster Than MaxUITests"
-               ReferencedContainer = "container:Faster Than Max.xcodeproj">
+               BuildableName = "SnellerDanMaxUITests.xctest"
+               BlueprintName = "SnellerDanMaxUITests"
+               ReferencedContainer = "container:SnellerDanMax.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -91,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Faster Than Max.app"
-            BlueprintName = "Faster Than Max"
-            ReferencedContainer = "container:Faster Than Max.xcodeproj">
+            BuildableName = "SnellerDanMax.app"
+            BlueprintName = "SnellerDanMax"
+            ReferencedContainer = "container:SnellerDanMax.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -114,9 +119,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Faster Than Max.app"
-            BlueprintName = "Faster Than Max"
-            ReferencedContainer = "container:Faster Than Max.xcodeproj">
+            BuildableName = "SnellerDanMax.app"
+            BlueprintName = "SnellerDanMax"
+            ReferencedContainer = "container:SnellerDanMax.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -133,9 +138,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Faster Than Max.app"
-            BlueprintName = "Faster Than Max"
-            ReferencedContainer = "container:Faster Than Max.xcodeproj">
+            BuildableName = "SnellerDanMax.app"
+            BlueprintName = "SnellerDanMax"
+            ReferencedContainer = "container:SnellerDanMax.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

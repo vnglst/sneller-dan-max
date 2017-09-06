@@ -31,14 +31,14 @@ class SnellerDanMaxUITests: XCTestCase {
     }
     
     func testExample() {
-        // Use recording to get started writing UI tests.
+      // Use recording to get started writing UI tests.
       // Use XCTAssert and related functions to verify your tests produce the correct results.
-     snapshot("0Launch")
-
-     // let startDeRaceElement = XCUIApplication().otherElements["Start de race!"]
-      //startDeRaceElement.tap()
-      //startDeRaceElement.tap()
       
+      let tapToRaceElement = XCUIApplication().otherElements["Tap to race!"]
+      tapToRaceElement.tap()
+      tapToRaceElement.tap()
+      snapshot("0Launch", waitForLoadingIndicator: false)
+     
     }
     
 }
