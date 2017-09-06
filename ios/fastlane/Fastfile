@@ -52,7 +52,6 @@ platform :ios do
     snapshot
     gym(scheme: "SnellerDanMax") # Build your app - more options available
     deliver(force: true)
-    frameit
   end
 
   # You can define as many lanes as you want

@@ -1,1 +1,1 @@
-
+copyright "#{Time.now.year} Koen van Gilst"
