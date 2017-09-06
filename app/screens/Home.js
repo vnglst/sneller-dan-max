@@ -18,7 +18,7 @@ import Time from "../components/Time"
 import { formatTime, isNumber } from "../utils"
 import {
   getStateFromLocalstorage,
-  setStateFromLocalstorage
+  saveStateToLocalStorage
 } from "../utils/localstorage"
 
 import api from "../utils/api"
@@ -45,7 +45,8 @@ export default class Home extends React.Component {
     this.handlePress = this.handlePress.bind(this)
     this.startCountDown = this.startCountDown.bind(this)
     this.startTimer = this.startTimer.bind(this)
-    this.getStateFromLocalStorage = this.getStateFromLocalStorage.bind(this)
+    this.loadState = this.loadState.bind(this)
+    this.saveState = this.saveState.bind(this)
     this.getHighscoresFromApi = this.getHighscoresFromApi.bind(this)
     this.checkHighscore = this.checkHighscore.bind(this)
   }
@@ -55,11 +56,11 @@ export default class Home extends React.Component {
   }
 
   componentDidMount() {
-    this.getStateFromLocalStorage()
+    this.loadState()
     // this.getHighscoresFromApi()
   }
 
-  async getStateFromLocalStorage() {
+  async loadState() {
     try {
       const state = await getStateFromLocalstorage()
       if (state !== null) {
@@ -155,7 +156,7 @@ export default class Home extends React.Component {
         endTime: this.time,
         personalBest
       },
-      this.saveStateToLocalStorage
+      this.saveState
     )
   }
 
@@ -168,7 +169,7 @@ export default class Home extends React.Component {
     // open highscore window, show new highscore list
   }
 
-  async saveStateToLocalStorage() {
+  async saveState() {
     try {
       console.log("Saving to local storage", this.state)
       await saveStateToLocalStorage(this.state)
@@ -190,14 +191,14 @@ export default class Home extends React.Component {
           activeOpacity={0.7}
         >
           <View style={styles.startButton}>
-            <Text style={styles.startButtonText}>Start de race!</Text>
+            <Text style={styles.startButtonText}>Tap to race!</Text>
           </View>
         </TouchableHighlight>
         <Time
-          timeStr={endTime !== null ? formatTime(endTime) : "VALSE START!"}
+          timeStr={endTime !== null ? formatTime(endTime) : "JUMP START!"}
         />
         <Text style={styles.personalRecord}>
-          Persoonlijk record:{" "}
+          Personal best:{" "}
           {personalBest !== null ? formatTime(personalBest) : "-"}
         </Text>
         <View style={styles.footer}>
