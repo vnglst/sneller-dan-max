@@ -52,7 +52,7 @@ export default class Home extends React.Component {
   }
 
   static navigationOptions = {
-    title: "Sneller dan Max"
+    title: "Faster than Max"
   }
 
   componentDidMount() {
