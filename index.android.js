@@ -1,3 +1,3 @@
 import { AppRegistry } from 'react-native';
 import App from './app/App';
-AppRegistry.registerComponent('snellerdanmax', () => App);
+AppRegistry.registerComponent('SnellerDanMax', () => App);
