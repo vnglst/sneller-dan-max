@@ -54,6 +54,17 @@ platform :ios do
     deliver(force: true)
   end
 
+  desc "Update screenshots & info for new version to the App Store"
+  lane :releaseUpdate do
+    increment_build_number
+    match(
+      type: "appstore",
+      git_url: "git@github.com:vnglst/xcode-certificates.git"
+    )
+    snapshot
+    deliver(force: true)
+  end
+
   # You can define as many lanes as you want
 
   after_all do |lane|
