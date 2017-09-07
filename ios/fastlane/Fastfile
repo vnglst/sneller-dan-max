@@ -61,7 +61,7 @@ platform :ios do
       type: "appstore",
       git_url: "git@github.com:vnglst/xcode-certificates.git"
     )
-    snapshot
+    #snapshot
     deliver(force: true)
   end
 
